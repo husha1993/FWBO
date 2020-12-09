@@ -1,0 +1,16 @@
+# editors
+.idea/
+.vscode/
+
+# Python
+*.egg-info/
+.pytest_cache/
+__pycache__
+.cache/
+
+# data
+train_dir
+eval_dir
+direct.txt
+MUJOCO_LOG.TXT
+*.tar

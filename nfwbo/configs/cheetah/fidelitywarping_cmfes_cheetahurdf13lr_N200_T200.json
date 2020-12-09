@@ -1,0 +1,57 @@
+{
+    "force_manual_design": false,
+    "design_dim": 13,
+    "design_mode": "13lr",
+    "design_bounds": [[0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5], [2, 2, 2, 2, 2, 2,2 , 2, 2, 2, 2, 2, 2]],
+    "bounds": null,
+  "op_algorithm_config" : {
+    "xbounds": [[0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5], [2, 2, 2, 2, 2, 2,2 , 2, 2, 2, 2, 2, 2]],
+    "zbounds": [[0,0],[1,1]],
+    "bounds": [[0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5, 0, 0], [2, 2, 2, 2, 2, 2,2 , 2, 2, 2, 2, 2, 2, 1,1]],
+    "surrogate_name": "fidelitywarping",
+    "max_num_epochs_per_design": 200,
+    "costs": null,
+    "time_limits":200,
+    "gp_update_interval": 1,
+    "warping_update_interval": 1,
+    "x_ninit": 1,
+    "z_ninit": 10,
+    "GPRS": {
+      "n_restarts": 5,
+      "warping_function_name": "nn",
+      "warping_manner": "fidelitywarping",
+      "hiddens":[6],
+      "out_dim": 2,
+      "noise":null,
+      "whitenoise":0.04
+    },
+    "acq": {
+      "name": "CMF-ES",
+      "num_samples": 100,
+      "sampler": {
+        "burn_in_steps": 50,
+        "n_steps": 100
+      }
+    },
+    "optninit": 2000,
+    "optniter": 20,
+    "obj_name": null,
+    "initBudget": null
+  },
+  "rl_alg" : "PPOVecBatch",
+  "rl_algorithm_config" : {
+    "algo_params": {
+      "sample_size": 4096,
+      "lam":0.95,
+      "gamma":0.99,
+      "v_max": 1,
+      "v_min": 0,
+      "time_limit":500
+    },
+    "num_env":10
+  },
+  "env": {
+    "env_name":"HalfCheetahUrdfEnv",
+    "render":false
+  }
+}

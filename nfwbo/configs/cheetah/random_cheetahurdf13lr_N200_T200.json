@@ -1,0 +1,35 @@
+{
+    "force_manual_design": false,
+    "design_dim": 13,
+    "design_mode": "13lr",
+    "design_bounds":[[0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5], [2, 2, 2, 2, 2, 2,2 , 2, 2, 2, 2, 2, 2]],
+    "bounds": null,
+    "op_algorithm_config" : {
+      "seeds": 1,
+      "xbounds": [[0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5], [2, 2, 2, 2, 2, 2,2 , 2, 2, 2, 2, 2, 2]],
+      "zbounds": [[1,1],[1,1]],
+      "bounds": [[0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5, 0.3, 0.3, 0.5], [2, 2, 2, 2, 2, 2,2 , 2, 2, 2, 2, 2, 2]],
+      "max_num_epochs_per_design": 200,
+      "costs": null,
+      "time_limits":200,
+      "x_ninit": 6,
+      "obj_name": null,
+      "initBudget" : null
+    },
+    "rl_alg" : "PPOVecBatch",
+    "rl_algorithm_config" : {
+      "algo_params": {
+        "sample_size": 4096,
+        "lam":0.95,
+	      "gamma":0.99,
+	      "v_max": 1,
+        "v_min": 0,
+        "time_limit":500
+      },
+      "num_env":10
+    },
+    "env": {
+            "env_name":"HalfCheetahUrdfEnv",
+            "render":false
+    }
+}
